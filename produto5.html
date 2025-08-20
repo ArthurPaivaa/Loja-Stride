@@ -1,0 +1,110 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Produto — STRIDE</title>
+    <link rel="stylesheet" href="produto.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">STRIDE</a>
+
+            <nav class="nav" id="main-nav">
+                <button class="close-menu" id="close-menu">×</button>
+                <a href="index.html">Home</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="quem-somos.html">Quem somos</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+
+            <div class="actions">
+                <form class="search" action="busca.html" method="get">
+                    <input name="q" type="search" placeholder="Buscar tênis, marcas...">
+                    <button type="submit">🔍</button>
+                </form>
+                <a class="cart" href="cadastro.html">🛒</a>
+                <a class="cart" href="pedidos.html">📦</a>
+                <button id="nav-toggle" class="nav-toggle" aria-label="menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container product-page">
+        <div class="product-grid">
+            <div class="gallery">
+                <img src="https://sentarostreetwear.com/cdn/shop/files/IMG_8046.jpg?v=1744909427&width=1000" alt="Produto">
+            </div>
+            <div class="info">
+                <h1>Adds Campus Bege</h1>
+                <p class="sku">SKU: RP-005</p>
+                <p class="price">R$ 409,90</p>
+                <p class="desc"> escreva aqui a descrição do produto </p>
+                
+                    
+                </label>
+                <label>Tamanho
+                    <select>
+                        <option>38</option>
+                        <option>39</option>
+                        <option>40</option>
+                        <option>41</option>
+                        <option>42</option>
+                    </select>
+                </label>
+                <label>Quantidade
+                    <input type="number" value="1" min="1" max="10">
+                </label>
+                <div class="product-actions">
+                    <a class="btn" href="pedidos.html">Comprar agora</a>
+                    <a class="btn-outline" href="produtos.html">Voltar</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="more-info">
+            <h2>Especificações</h2>
+            <ul>
+                <li>Material: Mesh respirável</li>
+                <li>Solado: Borracha antiderrapante</li>
+                <li>Palmilha: Ortho foam</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© 2025 STRIDE</p>
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.getElementById("main-nav");
+        const openBtn = document.getElementById("nav-toggle");
+        const closeBtn = document.getElementById("close-menu");
+
+        // Abrir menu
+        openBtn.addEventListener("click", () => {
+            nav.classList.add("active");
+        });
+
+        // Fechar menu
+        closeBtn.addEventListener("click", () => {
+            nav.classList.remove("active");
+        });
+
+        // Fechar clicando fora
+        document.addEventListener("click", (e) => {
+            if (!nav.contains(e.target) && !openBtn.contains(e.target)) {
+                nav.classList.remove("active");
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+:root {
+  --bg: #2B2D42;
+  /* azul marinho escuro */
+  --muted: #8D99AE;
+  /* cinza azulado */
+  --surface: #EDF2F4;
+  /* branco acinzentado */
+  --accent: #EF233C;
+  /* vermelho vivo */
+  --accent-dark: #D90429;
+  /* vermelho escuro */
+  --txt: #2B2D42;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  margin: 0;
+  background: var(--surface);
+  color: var(--txt)
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid rgba(43, 45, 66, 0.06)
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0
+}
+
+.logo {
+  font-weight: 800;
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 1.6rem
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center
+}
+
+.nav a {
+  color: var(--bg);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px
+}
+
+.nav a.active {
+  background: var(--accent);
+  color: white
+}
+
+.cart {
+  background: var(--accent);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none
+}
+
+.bt-login {
+  background: var(--accent);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.2rem
+}
+
+.nav-cadastro {
+  display: none;
+  background: black;
+  border: 0;
+  font-size: 1.2rem
+}
+
+.about {
+  padding: 28px 0
+}
+
+.team {
+  display: flex;
+  gap: 20px;
+  margin-top: 18px
+}
+
+.team article {
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  flex: 1;
+  text-align: center
+}
+
+.team img {
+  width: 100%;
+  border-radius: 8px
+}
+
+@media(max-width:700px) {
+  .team {
+    flex-direction: column
+  }
+}

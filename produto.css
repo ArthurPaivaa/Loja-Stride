@@ -1,0 +1,221 @@
+:root {
+    --bg: #2B2D42;
+    --muted: #8D99AE;
+    --surface: #EDF2F4;
+    --accent: #EF233C
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    margin: 0;
+    background: var(--surface);
+    color: var(--txt)
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px
+}
+
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid rgba(43, 45, 66, 0.06)
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0
+}
+
+.logo {
+    font-weight: 800;
+    color: var(--bg);
+    text-decoration: none;
+    font-size: 1.6rem
+}
+
+.nav {
+    display: flex;
+    gap: 18px;
+    align-items: center
+}
+
+.nav a {
+    color: var(--bg);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 8px
+}
+
+.nav a.active {
+    background: var(--accent);
+    color: white
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.search input {
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(43, 45, 66, 0.06)
+}
+
+.search button {
+    background: var(--bg);
+    color: white;
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 999px
+}
+
+.cart {
+    background: var(--accent);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    font-size: 1.2rem
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 24px;
+    padding: 28px 0
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 12px
+}
+
+.info h1 {
+    margin: 0 0 8px
+}
+
+.price {
+    font-weight: 800;
+    color: var(--bg);
+    font-size: 1.4rem
+}
+
+.desc {
+    color: var(--muted);
+    margin: 10px 0
+}
+
+label {
+    display: block;
+    margin: 10px 0
+}
+
+.product-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px
+}
+
+.btn {
+    background: var(--bg);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none
+}
+
+.btn-outline {
+    background: var(--muted);
+    border: 1px solid rgba(43, 45, 66, 0.06);
+    padding: 10px 14px;
+    border-radius: 8px
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Mobile */
+/* Menu lateral fechado */
+.nav {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    /* escondido */
+    width: 250px;
+    height: 100%;
+    background: var(--surface, #fff);
+    flex-direction: column;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Links dentro do menu */
+.nav a {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Botão de fechar */
+.close-menu {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Menu aberto */
+.nav.active {
+    left: 0;
+}
+
+/* Botão hamburguer */
+.nav-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: none;
+}
+
+/* Mostra o hamburguer no mobile */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+}
+
+
+@media(max-width:900px) {
+    .product-grid {
+        grid-template-columns: 1fr
+    }
+}

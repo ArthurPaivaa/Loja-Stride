@@ -1,0 +1,346 @@
+:root {
+    --bg: #2B2D42;
+    /* azul marinho escuro */
+    --muted: #8D99AE;
+    /* cinza azulado */
+    --surface: #EDF2F4;
+    /* branco acinzentado */
+    --accent: #EF233C;
+    /* vermelho vivo */
+    --accent-dark: #D90429;
+    /* vermelho escuro */
+    --txt: #2B2D42;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    margin: 0;
+    background: var(--surface);
+    color: var(--txt)
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px
+}
+
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid rgba(43, 45, 66, 0.06)
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0
+}
+
+.logo {
+    font-weight: 800;
+    color: var(--bg);
+    text-decoration: none;
+    font-size: 1.6rem
+}
+
+.nav {
+    display: flex;
+    gap: 18px;
+    align-items: center
+}
+
+.nav a {
+    color: var(--bg);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 8px
+}
+
+.nav a.active {
+    background: var(--accent);
+    color: white
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.search input {
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(43, 45, 66, 0.06)
+}
+
+.search button {
+    background: var(--bg);
+    color: white;
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 999px
+}
+
+.cart {
+    background: var(--accent);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    font-size: 1.2rem
+}
+
+/* Conteúdo principal */
+.carrinho-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: #e6e6e6;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.carrinho-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.tabela-carrinho {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-carrinho th,
+.tabela-carrinho td {
+    border: 1px solid #ccc;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.tabela-carrinho th {
+    background-color: var(--accent);
+    color: white;
+}
+
+.quantidade {
+    width: 60px;
+}
+
+.remover {
+    background: var(--bg);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.remover:hover {
+    background: #8c7b72;
+}
+
+.resumo-carrinho {
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+.btn-finalizar {
+    margin-top: 0.5rem;
+    background-color: var(--accent-dark);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-finalizar:hover {
+    background-color: #6212f7;
+}
+
+/* RESPONSIVIDADE */
+
+/* Menu lateral fechado */
+.nav {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    /* escondido */
+    width: 250px;
+    height: 100%;
+    background: var(--surface, #fff);
+    flex-direction: column;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Links dentro do menu */
+.nav a {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Botão de fechar */
+.close-menu {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Menu aberto */
+.nav.active {
+    left: 0;
+}
+
+/* Botão hamburguer */
+.nav-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: none;
+}
+
+/* Mostra o hamburguer no mobile */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+}
+
+
+/* Animação para o menu */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--surface);
+        padding: 1rem 0;
+        gap: 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .nav a {
+        text-align: center;
+        padding: 10px;
+        border-radius: 0;
+    }
+
+    .nav.active {
+        display: flex;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    .nav-toggle {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+
+    .search {
+        flex: 1;
+        display: flex;
+    }
+
+    .search input {
+        flex: 1;
+    }
+}
+
+/* Animação para o menu */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Menos de 550px */
+@media (max-width: 549px) {
+    .tabela-carrinho thead {
+        display: none;
+    }
+
+    .tabela-carrinho tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 1rem;
+    }
+
+    .tabela-carrinho td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border: none;
+    }
+
+    .resumo-carrinho {
+        text-align: center;
+    }
+}
+
+/* Entre 550px e 1100px */
+@media (min-width: 550px) and (max-width: 1100px) {
+    .carrinho-container {
+        width: 90%;
+    }
+}
+
+/* Mais de 1100px */
+@media (min-width: 1101px) {
+    .carrinho-container {
+        width: 80%;
+    }
+}

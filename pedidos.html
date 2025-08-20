@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carrinho - STRIDE</title>
+    <link rel="stylesheet" href="pedidos.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">STRIDE</a>
+
+            <nav class="nav" id="main-nav">
+                <button class="close-menu" id="close-menu">×</button>
+                <a href="index.html">Home</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="quem-somos.html">Quem somos</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+
+            <div class="actions">
+                <form class="search" action="busca.html" method="get">
+                    <input name="q" type="search" placeholder="Buscar tênis, marcas...">
+                    <button type="submit">🔍</button>
+                </form>
+                <a class="cart" href="cadastro.html">🛒</a>
+                <a class="cart" href="pedidos.html">📦</a>
+                <button id="nav-toggle" class="nav-toggle" aria-label="menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="carrinho-container">
+        <h1>Meu Carrinho</h1>
+
+        <table class="tabela-carrinho">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="lista-carrinho">
+                <tr>
+                    <td>PM 180 Cinza</td>
+                    <td class="preco">409.00</td>
+                    <td><input type="number" value="1" min="1" class="quantidade"></td>
+                    <td class="subtotal">409.00</td>
+                    <td><button class="remover">Remover</button></td>
+                </tr>
+                <tr>
+                    <td>VNS KNU Azul</td>
+                    <td class="preco">299,90</td>
+                    <td><input type="number" value="2" min="1" class="quantidade"></td>
+                    <td class="subtotal">299,90</td>
+                    <td><button class="remover">Remover</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="resumo-carrinho">
+            <h2>Total da Compra: R$ <span id="total-geral">610.00</span></h2>
+            <button class="btn-finalizar">Finalizar Compra</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 STRIDE</p>
+    </footer>
+
+    <script>
+        function atualizarTotais() {
+            let totalGeral = 0;
+            document.querySelectorAll("#lista-carrinho tr").forEach(linha => {
+                const preco = parseFloat(linha.querySelector(".preco").textContent);
+                const quantidade = parseInt(linha.querySelector(".quantidade").value);
+                const subtotal = preco * quantidade;
+                linha.querySelector(".subtotal").textContent = subtotal.toFixed(2);
+                totalGeral += subtotal;
+            });
+            document.getElementById("total-geral").textContent = totalGeral.toFixed(2);
+        }
+
+        document.querySelectorAll(".quantidade").forEach(input => {
+            input.addEventListener("change", atualizarTotais);
+        });
+
+        document.querySelectorAll(".remover").forEach(botao => {
+            botao.addEventListener("click", function () {
+                this.closest("tr").remove();
+                atualizarTotais();
+            });
+        });
+    </script>
+
+    <script>
+        const nav = document.getElementById("main-nav");
+        const openBtn = document.getElementById("nav-toggle");
+        const closeBtn = document.getElementById("close-menu");
+
+        // Abrir menu
+        openBtn.addEventListener("click", () => {
+            nav.classList.add("active");
+        });
+
+        // Fechar menu
+        closeBtn.addEventListener("click", () => {
+            nav.classList.remove("active");
+        });
+
+        // Fechar clicando fora
+        document.addEventListener("click", (e) => {
+            if (!nav.contains(e.target) && !openBtn.contains(e.target)) {
+                nav.classList.remove("active");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
